@@ -23,6 +23,9 @@ namespace MoveWaffle_API.Controllers
         [HttpGet]
         public Television Get()
         {
+            // temporary debug
+            _reader.GetTitles();
+
             return _reader.GetTelevision();
         }
 
