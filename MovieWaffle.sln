@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveWaffle_API", "MoveWaffle_API\MoveWaffle_API.csproj", "{7A8CDBF1-375F-408C-889B-4548786EA371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWaffle_API_Test", "MovieWaffle_API_Test\MovieWaffle_API_Test.csproj", "{FD0E4179-E6AF-4052-A9AA-BDF1AA644BEA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +13,5 @@ Global
 		{7A8CDBF1-375F-408C-889B-4548786EA371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A8CDBF1-375F-408C-889B-4548786EA371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A8CDBF1-375F-408C-889B-4548786EA371}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD0E4179-E6AF-4052-A9AA-BDF1AA644BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD0E4179-E6AF-4052-A9AA-BDF1AA644BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD0E4179-E6AF-4052-A9AA-BDF1AA644BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD0E4179-E6AF-4052-A9AA-BDF1AA644BEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
