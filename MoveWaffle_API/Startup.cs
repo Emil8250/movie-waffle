@@ -29,12 +29,12 @@ namespace MoveWaffle_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IReader,Television>();
+            services.AddTransient<IReader,Reader>();
             services.AddDbContext<WaffleContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
             services.AddControllers();
-        }
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WaffleContext dbContext)
