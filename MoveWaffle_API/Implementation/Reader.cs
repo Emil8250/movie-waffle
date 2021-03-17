@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using MoveWaffle_API.DataAccess;
@@ -26,9 +28,9 @@ namespace MoveWaffle_API.Implementation
             };
         }
 
-        public User GetUser()
+        public User GetUser(Guid uuid)
         {
-            throw new NotImplementedException();
+            return _dbContext.Find<User>(uuid);
         }
 
         public IQueryable<User> GetUsers()
@@ -41,7 +43,7 @@ namespace MoveWaffle_API.Implementation
         {
             List<IMDBTitle> resultTitles = new List<IMDBTitle>();
 
-            string[] lines = File.ReadAllLines(@"D:\programming\movie-waffle\MoveWaffle_API\IMDB-datasets\title.basics.tsv");
+            string[] lines = File.ReadAllLines(Path.GetFullPath(@"D:\programming\movie-waffle\MoveWaffle_API\IMDB-datasets\title.basics.tsv"));
 
             System.Diagnostics.Debug.WriteLine(lines.Length);
 

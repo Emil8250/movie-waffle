@@ -8,8 +8,8 @@ namespace MoveWaffle_API.Interfaces
     public interface IReader
     {
         Television GetTelevision();
-        User GetUser();
+        User GetUser(Guid uuid);
         IQueryable<User> GetUsers();
-        public List<IMDBTitle> GetTitles();
+        List<IMDBTitle> GetTitles();
     }
 }

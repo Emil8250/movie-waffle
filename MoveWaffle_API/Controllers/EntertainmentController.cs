@@ -14,9 +14,11 @@ namespace MoveWaffle_API.Controllers
     public class EntertainmentController : Controller
     {
         private IReader _reader;
-        public EntertainmentController(IReader reader)
+        private IWriter _writer;
+        public EntertainmentController(IReader reader, IWriter writer)
         {
             _reader = reader;
+            _writer = writer;
         }
 
         // GET: api/values
@@ -24,8 +26,14 @@ namespace MoveWaffle_API.Controllers
         public Television Get()
         {
             // temporary debug
-            _reader.GetTitles();
-
+            // _reader.GetTitles();
+            var user = new User
+            {
+                ID = new Guid(),
+                JoinDate = DateTime.Now,
+                UserName = "Test"
+            };
+            var test = _writer.DeleteUser(Guid.Parse("72AF9006-A384-4BF5-0983-08D8E986D9F3"));
             return _reader.GetTelevision();
         }
 

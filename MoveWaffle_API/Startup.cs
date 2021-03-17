@@ -30,6 +30,7 @@ namespace MoveWaffle_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IReader,Reader>();
+            services.AddTransient<IWriter, Writer>();
             services.AddDbContext<WaffleContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
