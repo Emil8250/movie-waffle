@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using MoveWaffle_API.DataAccess;
 using MoveWaffle_API.Implementation;
 using MoveWaffle_API.Interfaces;
+using NLog.Extensions.Logging;
 
 namespace MoveWaffle_API
 {
@@ -29,8 +30,17 @@ namespace MoveWaffle_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddLogging(loggingBuilder =>
+            {
+                // configure Logging with NLog
+                loggingBuilder.ClearProviders();
+                loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                loggingBuilder.AddNLog(Configuration);
+            });
+
             services.AddTransient<IReader,Reader>();
-            services.AddTransient<IWriter, Writer>();
+            services.AddTransient<IWriter, Writer>();   
             services.AddDbContext<WaffleContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
@@ -52,7 +62,7 @@ namespace MoveWaffle_API
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

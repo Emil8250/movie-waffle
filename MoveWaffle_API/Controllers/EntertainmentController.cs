@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MoveWaffle_API.Interfaces;
 using MoveWaffle_API.Models;
 
@@ -13,12 +14,14 @@ namespace MoveWaffle_API.Controllers
     [Route("api/[controller]")]
     public class EntertainmentController : Controller
     {
-        private IReader _reader;
-        private IWriter _writer;
-        public EntertainmentController(IReader reader, IWriter writer)
+        private readonly IReader _reader;
+        private readonly IWriter _writer;
+        private readonly ILogger<EntertainmentController> _logger;
+        public EntertainmentController(IReader reader, IWriter writer, ILogger<EntertainmentController> logger)
         {
             _reader = reader;
             _writer = writer;
+            _logger = logger;
         }
 
         // GET: api/values
@@ -34,6 +37,7 @@ namespace MoveWaffle_API.Controllers
                 UserName = "Test"
             };
             var test = _writer.DeleteUser(Guid.Parse("72AF9006-A384-4BF5-0983-08D8E986D9F3"));
+            _logger.LogInformation("Hej");
             return _reader.GetTelevision();
         }
 
